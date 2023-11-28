@@ -1,10 +1,10 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.codeborne.selenide.SelenideElement;
+
+import static com.codeborne.selenide.Selenide.$x;
 
 public class Main {
-    public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "/home/trueuser/Desktop/NIR/Test_Project3/chromedriver-linux64/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://ok.ru/");
-    }
+    final String BASE_URL = "https://ok.ru/";
+    final SelenideElement UserName = $x("//input[@name=\"st.email\"]");
+    final SelenideElement PasswordName = $x("//input[@name=\"st.password\"]");
+    final SelenideElement SubmitButton = $x("//input[@value=\"Log in to OK\"]");
 }
