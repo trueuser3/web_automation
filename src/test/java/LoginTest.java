@@ -17,6 +17,7 @@ public class LoginTest extends BaseTest {
     final String ENTER_PASSWORD = "Enter password";
     final String INCORRECT_LOGIN_OR_PASSWORD = "Incorrect username and/or password";
 
+
     @Test
     public void checkLoginSucces() {
         Configuration.holdBrowserOpen = true;
@@ -84,6 +85,26 @@ public class LoginTest extends BaseTest {
         String text_of_error = loginPage.emptyInputLoginAndPassword();
         Assertions.assertEquals(text_of_error, INCORRECT_LOGIN_OR_PASSWORD);
 
+    }
+
+    @Test
+    public void checkSearchButtonInterests() {
+        Configuration.holdBrowserOpen = true;
+        LoginPage loginPage = new LoginPage();
+        loginPage.openWebsite(BASE_URL);
+        loginPage.clickOnSearchButtonInterests();
+        InterestsPage interestsPage = new InterestsPage();
+        interestsPage.visibleHeadTitle();
+    }
+
+    @Test
+    public void checkSearchButtonPeople() {
+        Configuration.holdBrowserOpen = true;
+        LoginPage loginPage = new LoginPage();
+        loginPage.openWebsite(BASE_URL);
+        loginPage.clickOnSearchButtonPeople();
+        PeoplePage peoplePage = new PeoplePage();
+        peoplePage.visiblePeopleFoundCounter();
     }
 
 }
