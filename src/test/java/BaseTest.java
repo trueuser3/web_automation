@@ -1,7 +1,6 @@
 import com.codeborne.selenide.Selenide;
-import org.junit.After;
-import org.junit.Before;
-import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 
 public class BaseTest {
@@ -11,20 +10,17 @@ public class BaseTest {
 
 
     public void setUp() {
-        Configuration.browser = "chrome";
-        Configuration.browserSize = "1920x1080";
-        Configuration.headless = false;
         Selenide.open(BASE_URL);
     }
 
 
-    @Before
+    @BeforeEach
     public void init() {
         setUp();
     }
 
-    @After
-    public void tearDown() {
+    @AfterEach
+    public void cleanUpEach() {
         Selenide.closeWebDriver();
     }
 
