@@ -1,3 +1,5 @@
+package Pages;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -11,8 +13,8 @@ public class InterestsPage {
     final SelenideElement INTERESTS_PAGE_SEARCH_BOX = $x("//input[@class = \"input__prt1l __size-m__prt1l input__t53m6 input-right__t53m6 search-input__hogpo\"]");
 
     public void visibleHeadTitle() {
-        $(HEAD_TITLE).shouldBe(Condition.visible);
-        $(H1_TITLE).shouldBe(Condition.visible);
-        $(INTERESTS_PAGE_SEARCH_BOX).shouldBe(Condition.visible);
+        HEAD_TITLE.shouldBe(Condition.visible);
+        H1_TITLE.shouldBe(Condition.visible);
+        INTERESTS_PAGE_SEARCH_BOX.shouldBe(Condition.visible);
     }
 }
