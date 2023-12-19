@@ -1,4 +1,5 @@
-import static com.codeborne.selenide.Selenide.$;
+package Pages;
+
 import static com.codeborne.selenide.Selenide.$x;
 
 import com.codeborne.selenide.Condition;
@@ -9,6 +10,6 @@ public class PeoplePage {
     final SelenideElement PEOPLE_FOUND_COUNTER = $x("//h2[@class = \"heading__unijc __h2__unijc\"]");
 
     public void visiblePeopleFoundCounter() {
-        $(PEOPLE_FOUND_COUNTER).shouldBe(Condition.visible);
+        PEOPLE_FOUND_COUNTER.shouldBe(Condition.visible);
     }
 }
