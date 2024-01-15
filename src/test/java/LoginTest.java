@@ -26,9 +26,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void checkNoPassword() {
         LoginPage loginPage = new LoginPage();
-        loginPage.inputLogin(CORRECT_LOGIN);
-        loginPage.inputPassword("");
-        loginPage.submitLoginAndPassword();
+        loginPage.inputLogin(CORRECT_LOGIN).inputPassword("").submitLoginAndPassword();
         String text_of_error = loginPage.emptyInputLoginAndPassword();
         Assertions.assertEquals(text_of_error, ENTER_PASSWORD);
     }
@@ -38,9 +36,7 @@ public class LoginTest extends BaseTest {
     @ValueSource(strings = {"", INCORRECT_PASSWORD})
     void checkEmptyLogin(String word) {
         LoginPage loginPage = new LoginPage();
-        loginPage.inputLogin("");
-        loginPage.inputPassword(word);
-        loginPage.submitLoginAndPassword();
+        loginPage.inputLogin("").inputPassword(word).submitLoginAndPassword();
         String text_of_error = loginPage.emptyInputLoginAndPassword();
         Assertions.assertEquals(text_of_error, ENTER_YOUR_USERNAME);
 
@@ -51,9 +47,7 @@ public class LoginTest extends BaseTest {
     @MethodSource(value = "testLoginsAndPasswords")
     public void succesLoginAndPassword(UserModel userModel) {
         LoginPage loginPage = new LoginPage();
-        loginPage.inputLogin(userModel.getLoginName());
-        loginPage.inputPassword(userModel.getPassword());
-        loginPage.submitLoginAndPassword();
+        loginPage.inputLogin(userModel.getLoginName()).inputPassword(userModel.getPassword()).submitLoginAndPassword();
         ProfilePage profilePage = new ProfilePage();
         String href = profilePage.getHrefProfilePage();
         Assertions.assertEquals(href, TOP_MENU);
@@ -69,9 +63,7 @@ public class LoginTest extends BaseTest {
     @MethodSource(value = "testLoginsAndPasswords2")
     public void nonSuccesLoginOrPassword(UserModel userModel) {
         LoginPage loginPage = new LoginPage();
-        loginPage.inputLogin(userModel.getLoginName());
-        loginPage.inputPassword(userModel.getPassword());
-        loginPage.submitLoginAndPassword();
+        loginPage.inputLogin(userModel.getLoginName()).inputPassword(userModel.getPassword()).submitLoginAndPassword();
         String text_of_error = loginPage.emptyInputLoginAndPassword();
         Assertions.assertEquals(text_of_error, INCORRECT_LOGIN_OR_PASSWORD);
     }
