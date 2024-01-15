@@ -14,31 +14,23 @@ public class ButtonsLoginPage {
     final SelenideElement VIDEO_BUTTON = $x("//a[@href = \"/video\"]");
 
     public void clickOnSearchButtonInterests() {
-        SEARCH_BUTTON.shouldBe(Condition.visible);
-        SEARCH_BUTTON.click();
-        INTERESTS_BUTTON.shouldBe(Condition.visible);
-        INTERESTS_BUTTON.click();
+        SEARCH_BUTTON.shouldBe(Condition.visible).click();
+        INTERESTS_BUTTON.shouldBe(Condition.visible).click();
     }
 
     public void clickOnSearchButtonPeople() {
-        SEARCH_BUTTON.shouldBe(Condition.visible);
-        SEARCH_BUTTON.click();
-        PEOPLE_BUTTON.shouldBe(Condition.visible);
-        PEOPLE_BUTTON.click();
+        SEARCH_BUTTON.shouldBe(Condition.visible).click();
+        PEOPLE_BUTTON.shouldBe(Condition.visible).click();
     }
 
     public void clickOnSearchButtonPublications() {
-        SEARCH_BUTTON.shouldBe(Condition.visible);
-        SEARCH_BUTTON.click();
-        PUBLICATIONS_BUTTON.shouldBe(Condition.visible);
-        PUBLICATIONS_BUTTON.click();
+        SEARCH_BUTTON.shouldBe(Condition.visible).click();
+        PUBLICATIONS_BUTTON.shouldBe(Condition.visible).click();
     }
 
     public void clickOnSearchButtonVideo() {
-        SEARCH_BUTTON.shouldBe(Condition.visible);
-        SEARCH_BUTTON.click();
-        VIDEO_BUTTON.shouldBe(Condition.visible);
-        VIDEO_BUTTON.click();
+        SEARCH_BUTTON.shouldBe(Condition.visible).click();
+        VIDEO_BUTTON.shouldBe(Condition.visible).click();
     }
 
 }
