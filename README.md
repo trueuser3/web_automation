@@ -57,8 +57,30 @@
 # Allure
 После написания большого количества тестов естественным желанием будет собрать все их результаты воедино, нарисовать графики, в общем посмотреть на картину в целом. Такую возможность предоставляет Allure (подробнее про него можно почитать на официальном сайте).
 
-Давайте запустим все тесты, которые мы написали (какие-то сломаем специально, для наглядности) и посмотрим, что получится
+Давайте запустим все тесты, которые мы написали (какие-то сломаем специально, для наглядности) и посмотрим, что получится. Allure выдаст следующую инфографику:
 ![alt-текст](https://github.com/trueuser3/web_automation/blob/branch-for-readme/images/Screenshot%20from%202024-01-27%2001-40-08.png)
+
+Если же мы хотим более подробно посмотреть какие именно тесты упали и из-за чего это произошло, то Allure также позволяет нам сделать это.
+![alt-текст](https://github.com/trueuser3/web_automation/blob/branch-for-readme/images/Screenshot%20from%202024-01-27%2001-42-40.png)
+
+Так же, как и с тестами, существует множество различных аннотаций для Allure, которые облегчают анализ результатов. Так, например, какой-нибудь тест можем оформить вот так
+
+```java
+    @Test
+    @Description(value = "Тест проверяет, что вход на страницу не выполнится, если не введен пароль")
+    @Owner(value = "Иванов Иван Иванович")
+    public void checkNoPassword() {
+        LoginPage loginPage = new LoginPage();
+        loginPage.inputLogin(CORRECT_LOGIN).inputPassword("").submitLoginAndPassword();
+        String text_of_error = loginPage.emptyInputLoginAndPassword();
+        Assertions.assertEquals(text_of_error, ENTER_PASSWORD);
+    }
+```
+
+И уже в самой инфографике увидим следующее:
+![alt-текст](https://github.com/trueuser3/web_automation/blob/branch-for-readme/images/Screenshot%20from%202024-01-27%2001-43-02.png)
+
+# Конец!
 
 
 
