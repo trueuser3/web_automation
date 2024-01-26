@@ -1,5 +1,7 @@
 import Pages.LoginPage;
 import Pages.ProfilePage;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
 import model.UserModel;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -24,6 +26,8 @@ public class LoginTest extends BaseTest {
 
 
     @Test
+    @Description(value = "Тест проверяет, что вход на страницу не выполнится, если не введен пароль")
+    @Owner(value = "Иванов Иван Иванович")
     public void checkNoPassword() {
         LoginPage loginPage = new LoginPage();
         loginPage.inputLogin(CORRECT_LOGIN).inputPassword("").submitLoginAndPassword();
