@@ -94,7 +94,6 @@
 
 ![alt-текст](https://github.com/trueuser3/web_automation/blob/branch-for-readme/images/Screenshot%20from%202024-01-27%2001-43-02.png)
 
-# Конец!
 
 
 
